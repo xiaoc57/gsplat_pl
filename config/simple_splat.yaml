@@ -1,0 +1,31 @@
+fit:
+    trainer:
+        max_steps: 100
+        # callbacks:
+        #   - class_path: lightning.pytorch.callbacks.EarlyStopping
+        #     init_args:
+        #       patience: 5
+        callbacks:
+          - class_path: lightning.pytorch.callbacks.TQDMProgressBar
+            init_args:
+                refresh_rate: 1
+                process_position: 0
+            # - class_path: lightning.pytorch.callbacks.LearningRateMonitor
+            # init_args:
+    model: 
+        class_path: SimpleSplat
+        init_args: 
+            # num_points: 2000
+            kwargs:
+                save_imgs: true
+                h: 256
+                w: 256
+    data: 
+        class_path: DatasetInterface
+        init_args:
+            dataset: GenerateOneImageDataset
+            batch_size: 1
+            num_workers: 6
+            kwargs:
+                img_path: null
+    

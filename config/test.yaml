@@ -1,0 +1,26 @@
+# config.yaml
+  #   trainer:
+  # callbacks:
+  #   - class_path: lightning.pytorch.callbacks.EarlyStopping
+  #     init_args:
+  #       patience: 5
+  #   - class_path: lightning.pytorch.callbacks.LearningRateMonitor
+  #     init_args:
+fit:
+    trainer:
+        max_steps: 100
+        devices: -1
+        accelerator: gpu
+
+    model: "SimpleNet"
+    data: 
+        class_path: "SimpleData"
+        init_args:
+            root_dir: "tmp/mnist"
+            batch_size: 64
+            num_workers: 6
+
+test:
+    trainer:
+        max_epochs: 10
+    model: "SimpleNet"
