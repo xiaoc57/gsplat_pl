@@ -3,7 +3,7 @@ from lightning.pytorch.demos.boring_classes import DemoModel, BoringDataModule
 from lightning.pytorch.callbacks import TQDMProgressBar
 
 from model import *
-from data import *
+from dataset import *
 
 
 def cli_main():
